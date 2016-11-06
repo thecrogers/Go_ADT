@@ -1,9 +1,8 @@
-package GO_ADT
+package BST
 
-// type DoubleLinkedList struct {
+// type BST struct {
 //   Add func
 //   Remove func
 //   Find func
-//   Reverse func
 //   Print func
 // }

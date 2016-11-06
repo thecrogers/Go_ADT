@@ -13,18 +13,18 @@ type SingleLinkedListInterface interface {
 	Print()
 }
 
-type SingleLinkedList struct {
-	Head *Node
-	Last *Node
-}
+// type SingleLinkedList struct {
+// 	Head *Node
+// 	Last *Node
+// }
 
-type ADT struct {
-	Head *Node
-	Last *Node
-}
-
-func (Adt *ADT) SingleLinkedList() (SingleLinkedListInterface, error) {
-	var SingleLinkedList SingleLinkedListInterface
-	SingleLinkedList = &SingleLinkedList{nil, nil}
-	return SingleLinkedList, nil
-}
+// type ADT struct {
+// 	Head *Node
+// 	Last *Node
+// }
+//
+// func (Adt *ADT) SingleLinkedList() (SingleLinkedListInterface, error) {
+// 	var SingleLinkedList SingleLinkedListInterface
+// 	SingleLinkedList = &SingleLinkedList{nil, nil}
+// 	return SingleLinkedList, nil
+// }

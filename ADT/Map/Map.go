@@ -1,6 +1,6 @@
-package GO_ADT
+package Map
 
-// type BTree struct {
+// type Map struct {
 //   Add func
 //   Remove func
 //   Find func

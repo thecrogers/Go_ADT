@@ -1,6 +1,6 @@
-package GO_ADT
+package PriorityQueue
 
-// type Queue struct {
+// type PriorityQueue struct {
 //   Enqueue func
 //   Dequeue func
 //   Print func

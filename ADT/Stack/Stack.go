@@ -1,4 +1,4 @@
-package GO_ADT
+package Stack
 
 // type Stack struct {
 //   Push func

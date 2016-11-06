@@ -1,6 +1,6 @@
-package GO_ADT
+package BTree
 
-// type BST struct {
+// type BTree struct {
 //   Add func
 //   Remove func
 //   Find func
