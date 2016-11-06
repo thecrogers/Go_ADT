@@ -1,6 +1,6 @@
 The Purpose of this project it so make a simple mostly recursive Go Lib that has several ADT that my be used as individual packages, or as one large package.
 
-CURRENT Progress: 
+CURRENT Progress:<br>
 Single Linked List
 
 The goal implementation will look something like one of the following
