@@ -4,7 +4,7 @@ CURRENT Progress:<br>
 Single Linked List
 
 TODO: <br>
-type check, and convert data sent into ADT with refelct pkg
+type check and convert data sent into ADT with refelct pkg
 
 The goal implementation will look something like one of the following
 
