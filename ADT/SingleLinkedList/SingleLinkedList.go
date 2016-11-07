@@ -12,71 +12,71 @@ type SingleLinkedList struct {
 }
 
 func NewADT() *SingleLinkedList {
-	SLL := &SingleLinkedList{nil, nil}
-	return SLL
+	sll := &SingleLinkedList{nil, nil}
+	return sll
 }
 
-func (SLL *SingleLinkedList) AddStart(id int, data interface{}) {
-	if SLL.Head == nil { //new list
+func (sll *SingleLinkedList) AddStart(id int, data interface{}) {
+	if sll.Head == nil { //new list
 		newNode := &Node{id, data, nil}
-		SLL.Head = newNode
-		SLL.Last = newNode
+		sll.Head = newNode
+		sll.Last = newNode
 	} else { //existing list
-		nodePtr := SLL.Head
+		nodePtr := sll.Head
 		newNode := Node{id, data, nodePtr}
-		SLL.Head = &newNode
+		sll.Head = &newNode
 	}
 }
 
-func (SLL *SingleLinkedList) AddEnd(id int, data interface{}) {
-	if SLL.Last == nil { //new list
+func (sll *SingleLinkedList) AddEnd(id int, data interface{}) {
+	if sll.Last == nil { //new list
 		newNode := &Node{id, data, nil}
-		SLL.Head = newNode
-		SLL.Last = newNode
+		sll.Head = newNode
+		sll.Last = newNode
 	} else { //existing list
-		nodePtr := SLL.Last
+		nodePtr := sll.Last
 		newNode := &Node{id, data, nil}
 		nodePtr.NodePtr = newNode
-		SLL.Last = newNode
+		sll.Last = newNode
 	}
 }
 
-func (SLL *SingleLinkedList) AddAfter(findId, id int, data interface{}) *Node {
-	if SLL.Head == nil { //new list
+func (sll *SingleLinkedList) AddAfter(findId, id int, data interface{}) *Node {
+	if sll.Head == nil { //new list
 		newNode := &Node{id, data, nil}
-		SLL.Head = newNode
-		SLL.Last = newNode
+		sll.Head = newNode
+		sll.Last = newNode
 	} else { //existing list
-		result := SLL.findNode(findId, SLL.Head)
+		result := sll.findNode(findId, sll.Head)
 		if result.NodePtr == nil {
 			newNode := &Node{id, data, nil}
 			result.NodePtr = newNode
-			SLL.Last = newNode
+			sll.Last = newNode
 		} else {
 			next := result.NodePtr
 			newNode := &Node{id, data, next}
 			result.NodePtr = newNode
 		}
 	}
-	return SLL.Head
+	return sll.Head
 }
 
-func (SLL *SingleLinkedList) Remove(id int) bool {
-	if SLL.Head == nil { //new list
+func (sll *SingleLinkedList) Remove(id int) bool {
+	if sll.Head == nil { //new list
 		return false
 	} else {
-		result := SLL.findNodeForRemoval(id, SLL.Head, nil) //returns the node previout to the one needed to be removed.
+		result := sll.findNodeForRemoval(id, sll.Head, nil) //returns the node previout to the one needed to be removed.
 		if result == nil {
 			return false
 		} else {
 			toRemove := result.NodePtr
 			if toRemove.NodePtr == nil { //ie end of list
 				result.NodePtr = nil
-				SLL.Last = result
+				sll.Last = result
 				return true
 			} else {
 				if result.Id == id { //returned node = id to be removed ie HEAD
-					SLL.Head = SLL.Head.NodePtr // move up Head
+					sll.Head = sll.Head.NodePtr // move up Head
 					return true
 				} else {
 					result.NodePtr = toRemove.NodePtr
@@ -87,18 +87,18 @@ func (SLL *SingleLinkedList) Remove(id int) bool {
 	}
 }
 
-func (SLL *SingleLinkedList) Find(id int) *Node {
-	if SLL.Head == nil { //new list
+func (sll *SingleLinkedList) Find(id int) *Node {
+	if sll.Head == nil { //new list
 		return nil
 	} else {
-		result := SLL.findNode(id, SLL.Head)
+		result := sll.findNode(id, sll.Head)
 		return result
 	}
 }
 
-func (SLL *SingleLinkedList) Size() int {
+func (sll *SingleLinkedList) Size() int {
 	size := 0
-	curr := SLL.Head
+	curr := sll.Head
 	for curr != nil {
 		size += 1
 		curr = curr.NodePtr
@@ -106,17 +106,17 @@ func (SLL *SingleLinkedList) Size() int {
 	return size
 }
 
-func (SLL *SingleLinkedList) Reverse() {
-	if SLL.Size() == 2 { //deal with list size of two
-		start := SLL.Head
-		last := SLL.Last
+func (sll *SingleLinkedList) Reverse() {
+	if sll.Size() == 2 { //deal with list size of two
+		start := sll.Head
+		last := sll.Last
 		start.NodePtr = nil
 		last.NodePtr = start
-		SLL.Head = last
-		SLL.Last = start
+		sll.Head = last
+		sll.Last = start
 	} else {
-		curr := SLL.Head
-		SLL.Last = curr
+		curr := sll.Head
+		sll.Last = curr
 		next := curr.NodePtr
 		rList := next.NodePtr
 		curr.NodePtr = nil
@@ -127,16 +127,16 @@ func (SLL *SingleLinkedList) Reverse() {
 			rList = rList.NodePtr
 		}
 		next.NodePtr = curr
-		SLL.Head = next
+		sll.Head = next
 	}
 }
 
-func (SLL *SingleLinkedList) Print() []*Node { //for testing only
-	if SLL.Head == nil { //new list
+func (sll *SingleLinkedList) Print() []*Node { //for testing only
+	if sll.Head == nil { //new list
 		return nil
 	} else {
 		var list []*Node
-		curr := SLL.Head
+		curr := sll.Head
 		for curr != nil {
 			list = append(list, curr)
 			curr = curr.NodePtr

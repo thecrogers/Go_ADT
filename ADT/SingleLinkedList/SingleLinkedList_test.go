@@ -12,28 +12,28 @@ func TestSingeLinkedList(t *testing.T) {
 	dataTwo := TestStruct{"World", 2}
 	dataThree := TestStruct{"Boom", 3}
 
-	SLL := NewADT()
-	if SLL == nil {
+	sll := NewADT()
+	if sll == nil {
 		t.Error("Failed to init new SSL")
 		t.Fail()
 	}
 
-	SLL.AddStart(1, dataOne)
-	if SLL.Size() != 1 {
+	sll.AddStart(1, dataOne)
+	if sll.Size() != 1 {
 		t.Errorf("did not add struct: %v", dataOne)
 	}
-	SLL.AddStart(2, dataTwo)
-	if SLL.Size() != 2 {
+	sll.AddStart(2, dataTwo)
+	if sll.Size() != 2 {
 		t.Errorf("did not add struct: %v", dataTwo)
 	}
-	SLL.AddStart(3, dataThree)
-	if SLL.Size() != 3 {
+	sll.AddStart(3, dataThree)
+	if sll.Size() != 3 {
 		t.Errorf("did not add struct: %v", dataThree)
 	}
 
-	t.Logf("size of List: %d", SLL.Size())
+	t.Logf("size of List: %d", sll.Size())
 
-	printResult := SLL.Print()
+	printResult := sll.Print()
 	if len(printResult) != 3 {
 		t.Error("\nFailed to print slice is of size 0")
 		t.Fail()
@@ -44,7 +44,7 @@ func TestSingeLinkedList(t *testing.T) {
 		}
 	}
 
-	findResult := SLL.Find(2)
+	findResult := sll.Find(2)
 	if findResult == nil {
 		t.Error("Failed to find node with id 2")
 		t.Fail()
@@ -52,8 +52,8 @@ func TestSingeLinkedList(t *testing.T) {
 		t.Logf("\n node found result: \n %v", findResult)
 	}
 
-	SLL.Reverse()
-	reverseResult := SLL.Print()
+	sll.Reverse()
+	reverseResult := sll.Print()
 	if len(reverseResult) != 3 {
 		t.Error("A node was lost while reversing")
 		t.Fail()
@@ -69,19 +69,19 @@ func TestSingeLinkedList(t *testing.T) {
 		}
 	}
 
-	if SLL.Last.Id != 3 {
-		t.Error("reverse did not keep SLL.Last in sync")
+	if sll.Last.Id != 3 {
+		t.Error("reverse did not keep sll.Last in sync")
 		t.Fail()
 	}
 
-	removeResultTwo := SLL.Remove(2)
+	removeResultTwo := sll.Remove(2)
 	if !removeResultTwo {
 		t.Error("Failed to remove node with id 2")
 		t.Fail()
 	}
-	t.Logf("size of list prior to second reversal: %d", SLL.Size())
-	SLL.Reverse()
-	reverseResult = SLL.Print()
+	t.Logf("size of list prior to second reversal: %d", sll.Size())
+	sll.Reverse()
+	reverseResult = sll.Print()
 	if len(reverseResult) != 2 {
 		t.Error("A node was lost while reversing")
 		t.Fail()
@@ -97,28 +97,28 @@ func TestSingeLinkedList(t *testing.T) {
 		}
 	}
 
-	if SLL.Last.Id != 1 {
-		t.Error("reverse did not keep SLL.Last in sync")
+	if sll.Last.Id != 1 {
+		t.Error("reverse did not keep sll.Last in sync")
 		t.Fail()
 	}
 
-	t.Logf("size of List: %d", SLL.Size())
+	t.Logf("size of List: %d", sll.Size())
 
-	printResult = SLL.Print()
+	printResult = sll.Print()
 	for _, result := range printResult {
 		t.Logf("\n print result: \n %v", result)
 	}
 
-	removeResultOne := SLL.Remove(1)
+	removeResultOne := sll.Remove(1)
 	if !removeResultOne {
 		t.Error("Failed to remove node with id 1")
 		t.Fail()
 	}
 
-	t.Logf("size of List after Removal of id 1: %d", SLL.Size())
+	t.Logf("size of List after Removal of id 1: %d", sll.Size())
 
-	SLL.AddEnd(4, dataOne)
-	reverseResult = SLL.Print()
+	sll.AddEnd(4, dataOne)
+	reverseResult = sll.Print()
 	if len(reverseResult) != 2 {
 		t.Error("A node was lost while reversing")
 		t.Fail()
@@ -133,12 +133,12 @@ func TestSingeLinkedList(t *testing.T) {
 			count++
 		}
 	}
-	t.Logf("size of List: %d", SLL.Size())
-	SLL.AddEnd(6, dataTwo)
-	t.Logf("size of List: %d", SLL.Size())
-	SLL.AddAfter(4, 5, dataThree)
-	t.Logf("size of List: %d", SLL.Size())
-	reverseResult = SLL.Print()
+	t.Logf("size of List: %d", sll.Size())
+	sll.AddEnd(6, dataTwo)
+	t.Logf("size of List: %d", sll.Size())
+	sll.AddAfter(4, 5, dataThree)
+	t.Logf("size of List: %d", sll.Size())
+	reverseResult = sll.Print()
 	if len(reverseResult) != 4 {
 		t.Error("A node was lost")
 		t.Fail()
